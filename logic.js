@@ -1,8 +1,8 @@
 
-const time_container = document.querySelector("#next-cont")
+const time_container = document.querySelector("#next-date-cont")
 const others_container = document.querySelector("#times-cont")
 
-const base_time = new Date(2021, 5, 6, 8, 30, 30);
+const base_time = new Date(2021, 5, 6, 8, 30, 33);
 const now = new Date();
 const future_events_count = 6;
 const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
