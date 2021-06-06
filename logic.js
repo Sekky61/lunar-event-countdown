@@ -20,18 +20,30 @@ function add_lunar_cycle(date_obj) {
 }
 
 function format_date(date_obj) {
-    let hour = date_obj.getHours();
-    let min = date_obj.getMinutes();
     let date = date_obj.getDate();
     let month = months[date_obj.getMonth()];
     let day = days[date_obj.getDay()];
-    return `${hour}:${min} - ${day} ${month} ${date}`
+
+    let hour_string = ('0' + date_obj.getHours()).slice(-2);
+    let min_string = ('0' + date_obj.getMinutes()).slice(-2);
+
+    return [`${hour_string}:${min_string}`, `${day} ${month} ${date}`]
 }
 
 function create_event_element(date_obj) {
     let el = document.createElement("div");
     el.className = "event-div";
-    el.textContent = format_date(date_obj);
+
+    const [time_string, date_string] = format_date(date_obj);
+
+    let time_el = document.createElement("span");
+    time_el.textContent = time_string;
+    el.appendChild(time_el);
+
+    let date_el = document.createElement("span");
+    date_el.textContent = date_string;
+    el.appendChild(date_el);
+
     return el;
 }
 
@@ -54,7 +66,8 @@ for (var i = 0; i < future_events_count; i++) {
 }
 
 if(future_events_count > 0) {
-    time_container.innerHTML = format_date(moons_since_ever[next_event_index]);
+    const [time_string, date_string] = format_date(moons_since_ever[next_event_index]);
+    time_container.textContent = `${time_string} ${date_string}`;
 
     for (var i = next_event_index + 1; i < moons_since_ever.length; i++) {
         var el = create_event_element(moons_since_ever[i]);
