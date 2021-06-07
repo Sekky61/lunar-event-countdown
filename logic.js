@@ -74,12 +74,10 @@ function draw_data() {
 
 local_switch.addEventListener('click', (e) => {
     local_time = !local_time;
-    console.log(local_time);
     draw_data();
 }
 );
 
-console.log(now);
 
 var iter_time = new Date(base_time);
 
@@ -102,6 +100,3 @@ for (var i = 0; i < future_events_count; i++) {
 draw_data();
 
 console.table(moons_since_ever);
-console.log(next_event_index);
-
-console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
