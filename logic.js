@@ -3,8 +3,8 @@ const time_container = document.querySelector("#next-date-cont")
 const others_container = document.querySelector("#times-cont")
 const local_switch = document.querySelector("#local-switch")
 
-const base_time = new Date(Date.UTC(2021, 5, 6, 6, 30, 33));
-const timezone_offset_minutes = - base_time.getTimezoneOffset(); // negated, so for example offset for UTC+2 is 120 (and not -120)
+const base_time = new Date(Date.UTC(2021, 5, 23, 7, 44, 33));
+const timezone_offset_minutes = -base_time.getTimezoneOffset(); // negated, so for example offset for UTC+2 is 120 (and not -120)
 const now = new Date();
 const future_events_count = 6;
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -15,13 +15,13 @@ const LC_HOURS = 29;
 const LC_MINS = 12;
 const LC_SECS = 44;
 
+var local_time = false;
+
 function add_lunar_cycle(date_obj) {
     date_obj.setHours(date_obj.getHours() + LC_HOURS);
     date_obj.setMinutes(date_obj.getMinutes() + LC_MINS);
     date_obj.setSeconds(date_obj.getSeconds() + LC_SECS);
 }
-
-var local_time = false;
 
 function format_date(date_obj) {
 

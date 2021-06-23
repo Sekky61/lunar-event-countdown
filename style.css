@@ -7,7 +7,7 @@ body{
 
 #next-cont {
     margin: auto;
-    margin-top: 5em;
+    margin-top: 4em;
     border: 3px solid #0077b6;
     padding: 15px;
     max-width: 600px;
@@ -26,7 +26,7 @@ body{
     gap: 20px;
     
     max-width: 400px;
-    margin: 100px auto;
+    margin: 70px auto;
     padding: 10px;
 }
 
